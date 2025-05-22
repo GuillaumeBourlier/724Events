@@ -20,5 +20,3 @@ Ce projet consiste a réparez les bugs du site d'une agence evenementielle 724Ev
 
 ## Tests
 - `yarn test`
-# 724Events
-# 724Events
