@@ -15,10 +15,13 @@ const Select = ({
 }) => {
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
+
   const changeValue = (newValue) => {
-    onChange();
-    setValue(newValue);
-    setCollapsed(newValue);
+    setValue(newValue); // merttre à jour la valeur sélectionnée
+    setCollapsed(true); // ferme la liste après sélection
+    if (onChange) { // appelle la fonction de rappel (callback) avec la nouvelle valeur
+      onChange(newValue); // si onChange est défini, l'appelle avec la nouvelle valeur
+    }
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
