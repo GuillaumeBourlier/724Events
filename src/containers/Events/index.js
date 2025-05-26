@@ -9,19 +9,20 @@ import "./style.css";
 
 const PER_PAGE = 9;
 
+// Le composant EventList affiche une liste d'événements avec un système de pagination et de filtrage par type d'événement.
 const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const filteredEvents = (
-    (!type
-      ? data?.events
-      : data?.events) || []
-  ).filter((event, index) => {
+
+  // Filtre les événements en fonction du type sélectionné et de la page actuelle
+  const filteredEvents =   (!type? data?.events : data?.events.filter((event) => event.type === type)) || []
+  .filter((_event, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
     ) {
+    
       return true;
     }
     return false;

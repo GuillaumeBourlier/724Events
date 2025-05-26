@@ -19,7 +19,8 @@ const Select = ({
   const changeValue = (newValue) => {
     setValue(newValue); // merttre à jour la valeur sélectionnée
     setCollapsed(true); // ferme la liste après sélection
-    if (onChange) { // appelle la fonction de rappel (callback) avec la nouvelle valeur
+    if (onChange) {
+      // appelle la fonction de rappel (callback) avec la nouvelle valeur
       onChange(newValue); // si onChange est défini, l'appelle avec la nouvelle valeur
     }
   };
@@ -91,7 +92,7 @@ Select.propTypes = {
   titleEmpty: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
-}
+};
 
 Select.defaultProps = {
   onChange: () => null,
@@ -99,6 +100,6 @@ Select.defaultProps = {
   label: "",
   type: "normal",
   name: "select",
-}
+};
 
 export default Select;
