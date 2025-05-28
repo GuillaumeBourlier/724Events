@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./index";
 
-// 🔧 MOCK du contexte de données
+// MOCK du contexte de données
 jest.mock("../../contexts/DataContext", () => ({
   useData: () => ({
     data: {
@@ -19,8 +19,8 @@ jest.mock("../../contexts/DataContext", () => ({
           title: "Conférence annuelle",
           date: "2024-06-15T00:00:00Z",
           type: "Business",
-        }
-      ]
+        },
+      ],
     },
     last: {
       cover: "/images/last-event.jpg",
@@ -76,14 +76,16 @@ describe("When a page is created", () => {
   it("a footer is displayed", async () => {
     render(<Home />);
     expect(await screen.findByText("Contactez-nous")).toBeInTheDocument();
-    expect(await screen.findByText("Notre derniére prestation")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Notre derniére prestation")
+    ).toBeInTheDocument();
   });
 
-it("an event card, with the last event, is displayed", async () => {
-  render(<Home />);
-  const successTitle = await screen.findByText("Notre derniére prestation");
-  const eventTitles = await screen.findAllByText("Soirée de lancement");
-  expect(successTitle).toBeInTheDocument();
-  expect(eventTitles.length).toBeGreaterThan(0); // ou `toBe(1)` si un seul attendu
-});
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    const successTitle = await screen.findByText("Notre derniére prestation");
+    const eventTitles = await screen.findAllByText("Soirée de lancement");
+    expect(successTitle).toBeInTheDocument();
+    expect(eventTitles.length).toBeGreaterThan(0); // ou `toBe(1)` si un seul attendu
+  });
 });
