@@ -86,6 +86,6 @@ describe("When a page is created", () => {
     const successTitle = await screen.findByText("Notre derniére prestation");
     const eventTitles = await screen.findAllByText("Soirée de lancement");
     expect(successTitle).toBeInTheDocument();
-    expect(eventTitles.length).toBeGreaterThan(0); // ou `toBe(1)` si un seul attendu
+    expect(eventTitles.length).toBeGreaterThan(0); 
   });
 });

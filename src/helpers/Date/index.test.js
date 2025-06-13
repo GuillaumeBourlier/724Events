@@ -6,7 +6,7 @@ describe("Date helper", () => {
             const date = new Date("2022-01-01");
             expect(getMonth(date)).toBe("janvier");
         });
-        it("the function return juillet for 2022-12-08 as date", () => {
+        it("the function return décembre for 2022-12-08 as date", () => {
         const date = new Date("2022-12-08");
             expect(getMonth(date)).toBe("décembre");
         });
