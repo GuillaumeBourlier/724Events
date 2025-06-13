@@ -2,17 +2,15 @@ import PropTypes from "prop-types";
 import "./style.scss";
 
 const ModalEvent = ({ event }) => {
-  let formattedDate = "Date inconnue";
-  if (event.periode) {
-    formattedDate = event.periode;
-  } else if (event.date) {
-    const date = new Date(event.date);
-    formattedDate = date.toLocaleDateString("fr-FR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
+  const date = event.date ? new Date(event.date) : null;
+  const formattedDate = date
+    ? date.toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : event.periode || "Date inconnue";
+
   return (
     <div className="ModalEvent">
       <div className="ModalEvent__imageContainer">
